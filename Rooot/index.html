@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <title>Manual Bootstrap 5 — Demo interativa</title>
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <style>
+  
+    body { padding-top: 72px; }
+    .sidebar { position: fixed; top: 72px; left: 0; bottom: 0; width: 260px; padding: 1rem; overflow:auto; border-right:1px solid #eee; background:#f8f9fa; }
+    main { margin-left: 280px; padding: 2rem; }
+    pre.example { background:#f6f8fa; padding: 0.75rem; border-radius:6px; }
+    .demo-box { min-height:120px; display:flex; align-items:center; justify-content:center; color:white; border-radius:6px; }
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Manual Bootstrap 5 — Demo</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navMenu" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#introducao">Introdução</a></li>
+        <li class="nav-item"><a class="nav-link" href="#layout">Layout / Grid</a></li>
+        <li class="nav-item"><a class="nav-link" href="#utilitarios">Utilitários</a></li>
+        <li class="nav-item"><a class="nav-link" href="#conteudo">Conteúdo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#componentes">Componentes</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<aside class="sidebar d-none d-lg-block">
+  <h6>Índice</h6>
+  <nav class="nav flex-column">
+    <a class="nav-link" href="#introducao">Introdução & Template</a>
+    <a class="nav-link" href="#cores">Cores & Tamanhos</a>
+    <a class="nav-link" href="#layout">Layout & Grid</a>
+    <a class="nav-link" href="#gutter">Gutters / Spacing</a>
+    <a class="nav-link" href="#posicao">Posicionamento</a>
+    <a class="nav-link" href="#tipografia">Tipografia</a>
+    <a class="nav-link" href="#imagens">Imagens & Figuras</a>
+    <a class="nav-link" href="#tabelas">Tabelas</a>
+    <a class="nav-link" href="#formularios">Formulários</a>
+    <a class="nav-link" href="#componentes">Componentes (accordion, alerts...)</a>
+    <a class="nav-link" href="#icons">Bootstrap Icons</a>
+    <a class="nav-link" href="#referencias">Referências</a>
+  </nav>
+</aside>
+
+
+<main>
+
+ 
+  <section id="introducao" class="mb-5">
+    <h2>Introdução & Template inicial</h2>
+    <p>
+      Esta página é uma reconstrução interativa do manual "Bootstrap 5 — Guia Rápido para Iniciantes".
+      Usa o template básico com CSS, Icons e bundle JS via CDN — exatamente como o manual recomenda. :contentReference[oaicite:7]{index=7}
+    </p>
+
+    <h5>Template mínimo (citado no manual)</h5>
+    <pre class="example"><code>&lt;!doctype html&gt;
+&lt;html lang="pt-BR"&gt;
+ &lt;head&gt;
+   &lt;meta charset="utf-8"&gt;
+   &lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+   &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+   &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+   &lt;!-- seu conteúdo --&gt;
+   &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p class="small text-muted">Salve este ficheiro como HTML e abra no navegador. (Template baseado no manual.)</p>
+  </section>
+
+
+  <section id="cores" class="mb-5">
+    <h2>Cores e tamanhos</h2>
+    <p>O Bootstrap padrão define keywords para cores: <code>primary, secondary, success, danger, warning, info, light, dark</code>. Use-as em classes como <code>bg-*</code>, <code>text-*</code> e <code>btn-*</code>. (Ver manual.) :contentReference[oaicite:8]{index=8}</p>
+
+    <div class="row g-2">
+      <div class="col-12 col-md-6">
+        <div class="p-3">
+          <h6>Exemplos de backgrounds</h6>
+          <div class="p-3 mb-2 demo-box bg-primary">bg-primary</div>
+          <div class="p-3 mb-2 demo-box bg-success">bg-success</div>
+          <div class="p-3 mb-2 demo-box bg-warning">bg-warning</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <h6>Botões: estilos e tamanhos</h6>
+        <button class="btn btn-primary btn-sm me-1">Primary sm</button>
+        <button class="btn btn-primary me-1">Primary</button>
+        <button class="btn btn-primary btn-lg">Primary lg</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="layout" class="mb-5">
+    <h2>Layout & Sistema de grade (Grid)</h2>
+    <p>
+      O sistema de grid divide a linha em 12 colunas — use <code>.container</code>, <code>.row</code> e <code>.col-*</code>.
+      A soma dentro de uma <code>.row</code> deve ser até 12 para evitar quebras inesperadas. (Resumo do manual.) :contentReference[oaicite:9]{index=9}
+    </p>
+
+    <h6>Exemplo: duas colunas</h6>
+    <div class="container mb-3">
+      <div class="row">
+        <div class="col-6 p-4 bg-primary text-white">Coluna 1 (col-6)</div>
+        <div class="col-6 p-4 bg-danger text-white">Coluna 2 (col-6)</div>
+      </div>
+    </div>
+
+    <h6>Breakpoints</h6>
+    <p class="small text-muted">xs &lt;576px, sm ≥576px, md ≥768px, lg ≥992px, xl ≥1200px, xxl ≥1400px — use classes como <code>col-md-6</code> para comportamento responsivo.</p>
+  </section>
+
+ 
+  <section id="gutter" class="mb-5">
+    <h2>Gutters (calhas) e espaçamento</h2>
+    <p>
+      Use classes <code>g-*</code> para espaçamento entre colunas (<code>g-0</code>.. <code>g-5</code>). Para margin/padding use utilitários <code>m/p + posição + nível</code> (ex.: <code>mt-3</code>, <code>px-4</code>). :contentReference[oaicite:10]{index=10}
+    </p>
+
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6"><div class="p-3 bg-secondary text-white">1</div></div>
+        <div class="col-6"><div class="p-3 bg-info text-white">2</div></div>
+        <div class="col-6"><div class="p-3 bg-success text-white">3</div></div>
+        <div class="col-6"><div class="p-3 bg-warning text-dark">4</div></div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section id="posicao" class="mb-5">
+    <h2>Posicionamento, largura e altura</h2>
+    <p>Classes como <code>position-*</code>, <code>start-50</code>, <code>top-50</code>, <code>translate-middle</code>, e utilitários <code>w-25</code>, <code>h-50</code> controlam posição e dimensão. Veja demo:</p>
+
+    <div class="position-relative" style="height:220px; border:1px dashed #ddd; padding:1rem;">
+      <div class="position-absolute start-50 top-50 translate-middle bg-danger text-white p-3">Centralizado</div>
+      <div class="position-absolute bottom-0 end-0 bg-success text-white p-2">Baixo/dir</div>
+    </div>
+  </section>
+
+  
+  <section id="tipografia" class="mb-5">
+    <h2>Tipografia</h2>
+    <p>Use classes <code>text-start/text-center/text-end</code>, <code>display-*</code> para textos grandes e <code>lead</code> para destaque. (Detalhes no manual.) :contentReference[oaicite:11]{index=11}</p>
+
+    <p class="lead">Este é um parágrafo com <code>lead</code>.</p>
+    <h1 class="display-4">display-4 — exemplo</h1>
+  </section>
+
+
+  <section id="imagens" class="mb-5">
+    <h2>Imagens e figuras</h2>
+    <p>Classes úteis: <code>img-fluid</code> (responsiva), <code>img-thumbnail</code>, <code>rounded</code>, e elementos <code>&lt;figure&gt;</code> com <code>.figure</code>, <code>.figure-img</code> e <code>.figure-caption</code>. :contentReference[oaicite:12]{index=12}</p>
+
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <!-- note: carregue sua imagem local se quiser; aqui usamos placeholder -->
+        <img src="https://picsum.photos/seed/lion/400/250" class="img-fluid rounded mb-2" alt="demo">
+        <figcaption class="figure-caption">Exemplo: figura com legenda</figcaption>
+      </div>
+      <div class="col-12 col-md-8">
+        <p>Posicione imagens com <code>float-start</code>, <code>float-end</code> ou centralize com <code>d-block mx-auto</code>.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="tabelas" class="mb-5">
+    <h2>Tabelas</h2>
+    <p>Adicione <code>table</code>, <code>table-striped</code>, <code>table-hover</code>, <code>table-bordered</code>, e use <code>.table-responsive</code> para tornar a tabela rolável em telas pequenas. (Manual mostra exemplos.) :contentReference[oaicite:13]{index=13}</p>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead><tr><th>#</th><th>Item</th><th>Descrição</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Exemplo</td><td>Linha de demonstração</td></tr>
+          <tr><td>2</td><td>Outra</td><td>Mais texto aqui</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <section id="formularios" class="mb-5">
+    <h2>Formulários</h2>
+    <p>Campos usam <code>form-control</code>, selects <code>form-select</code>, checkboxes radios com classes específicas. O manual também mostra rótulos flutuantes (<code>.form-floating</code>) e validação com <code>is-valid</code>/<code>is-invalid</code>. :contentReference[oaicite:14]{index=14}</p>
+
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="email" class="form-label">E-mail</label>
+        <input id="email" class="form-control" type="email" placeholder="nome@exemplo.com">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Escolha</label>
+        <select class="form-select">
+          <option>Opção 1</option>
+          <option>Opção 2</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingName" placeholder="Nome completo">
+          <label for="floatingName">Nome completo</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="componentes" class="mb-5">
+    <h2>Componentes essenciais</h2>
+    <p>O manual enumerou os 10 componentes principais: accordion (sanfona), alert/toast, badge, botões, cards, progress, carousel, modal, popovers/tooltips, navs/menus. Aqui há exemplos mínimos. :contentReference[oaicite:15]{index=15}</p>
+
+
+    <h5>Accordion (sanfona)</h5>
+    <div class="accordion mb-3" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headOne">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne">Item #1</button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">Corpo do item 1 — conteúdo HTML aceita.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headTwo">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">Item #2</button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">Item 2 — oculto por padrão.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <h5>Alerts e Toast</h5>
+    <div class="alert alert-warning" role="alert">Alerta de exemplo — use <code>alert-*</code>.</div>
+
+    <div class="toast align-items-center show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Isso é um toast (demonstração).</div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+
+
+    <h5 class="mt-3">Badge & Botões</h5>
+    <p>Badge em linha: <span class="badge bg-primary">Novo</span></p>
+    <button class="btn btn-outline-success">Exemplo botão</button>
+
+
+    <h5 class="mt-3">Cards</h5>
+    <div class="card mb-3" style="max-width:540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://picsum.photos/seed/card/200/140" class="img-fluid rounded-start" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Título do card</h5>
+            <p class="card-text">Texto de exemplo no corpo do card.</p>
+            <a href="#" class="btn btn-primary btn-sm">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h5 class="mt-3">Modal (dialog)</h5>
+    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalDemo">Abrir modal</button>
+
+    <div class="modal fade" id="modalDemo" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Exemplo Modal</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">Modal: texto e controles.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="icons" class="mb-5">
+    <h2>Bootstrap Icons</h2>
+    <p>Inclua a folha de estilos do Bootstrap Icons e use as classes <code>bi bi-*</code> — o manual mostra exemplos (ex.: <code>&lt;i class="bi bi-house-fill"&gt;&lt;/i&gt;</code>). :contentReference[oaicite:16]{index=16}</p>
+    <p class="fs-4"><i class="bi bi-house-fill"></i> <i class="bi bi-person-circle"></i> <i class="bi bi-bar-chart"></i></p>
+  </section>
+
+  <section id="referencias" class="mb-5">
+    <h2>Referências e nota sobre o PDF</h2>
+    <p>Esta página foi construída a partir do PDF que você enviou. Para consultar o manual original, o ficheiro está disponível localmente neste sistema em:</p>
+    <pre class="example">/mnt/data/bootstrap5_min.pdf</pre>
+    <p class="small text-muted">Fonte principal: "Bootstrap 5 – Guia Rápido para Iniciantes" (Diego Mariano). :contentReference[oaicite:17]{index=17}</p>
+    <p class="text-muted small">Trechos específicos usados: grid & containers (Tabela de contêineres), utilitários de espaçamento e exemplos de componentes. :contentReference[oaicite:18]{index=18} :contentReference[oaicite:19]{index=19} :contentReference[oaicite:20]{index=20}</p>
+  </section>
+
+  <footer class="pt-4 border-top">
+    <p class="small text-muted">Página demo gerada a partir do manual fornecido. Cite o autor se reutilizar conteúdo do PDF. :contentReference[oaicite:21]{index=21}</p>
+  </footer>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
